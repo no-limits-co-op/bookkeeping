@@ -1,9 +1,12 @@
 import React from 'react';
-import Auth from './components/auth'
+import {
+  Text,
+
+} from 'react-native';
 
 function App(): JSX.Element {
   return (
-    <Auth />
+    <Text>start</Text>
   );
 }
 
