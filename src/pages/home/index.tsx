@@ -1,14 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import {
-  Text, View
-} from 'react-native'
+import react, { useState } from 'react'
+import { Text, View } from 'react-native'
 import useNotion from '../../hooks/useNotion'
 
-const Auth = () => {
-  const { notion, setNotion } = useNotion()
-  useEffect(() => {
-    setNotion()
-  }, [])
+const Home: react.FC = () => {
+  const { notion } = useNotion()
   const myPage = async () => await notion?.databases.query({
     database_id: process.env.NOTION_DATABASE_ID
     //   filter: {
@@ -20,14 +15,17 @@ const Auth = () => {
   })
   const [data, useData] = useState<any>(null)
   myPage().then((res) => {
-    console.log(JSON.stringify(res))
     useData(res)
   })
   return (
     <View>
-      <Text>{ JSON.stringify(data) }</Text>
+      <Text>Home Page</Text>
+      { data?.results.map((res) => (<View key={ res.id }>
+        <Text>{ res.id }</Text>
+        <Text>{ JSON.stringify(res.properties) }</Text>
+      </View>)) }
     </View>
   )
 }
 
-export default Auth
+export default Home

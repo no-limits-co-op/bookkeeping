@@ -1,8 +1,14 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
-  "paths": {
-    "@/*": [
-      "src/*"
-    ]
-  }
+  "compilerOptions": {
+    "paths": {
+      "src/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "__tests__",
+    "src"
+  ]
 }

@@ -5,12 +5,13 @@ const useNotion = create((set) => {
   return {
     notion: null,
     setNotion: () => {
-      if (this.notion) return
+      if (this.notion) return true
       set({
         notion: new Client({
           auth: process.env.NOTION_TOKEN
         })
       })
+      return true
     }
   }
 })

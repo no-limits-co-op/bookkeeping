@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from '@jest/globals'
 
 import user from '@testing-library/user-event';
 
@@ -13,9 +14,9 @@ import {
   MultiplicationKey,
   NumberKey,
   SubtractionKey,
-} from '@/components/Key';
-import { CONSOLE_INIT_TEXT, ConsoleProvider } from '@/contexts/ConsoleContext';
-import { Console } from '@/components/Console';
+} from 'src/components/Key';
+import { CONSOLE_INIT_TEXT, ConsoleProvider } from 'src/components/calculator/contexts/ConsoleContext'
+import { Console } from 'src/components/calculator/Console'
 
 describe('Key', () => {
   it('should display single number', async () => {

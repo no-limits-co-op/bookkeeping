@@ -1,12 +1,11 @@
-import { Typography } from '@mui/material';
-
-import { useConsole } from '@/contexts/ConsoleContext';
+import { useConsole } from './contexts/ConsoleContext'
+import { View } from 'react-native'
 
 export const Console = () => {
   const { value } = useConsole();
   return (
-    <Typography data-testid="console" variant="h4" align="right" sx={{ overflowX: 'hidden' }}>
+    <View data-testid="console" variant="h4" align="right" sx={ { overflowX: 'hidden' } }>
       {value}
-    </Typography>
+    </View>
   );
 };

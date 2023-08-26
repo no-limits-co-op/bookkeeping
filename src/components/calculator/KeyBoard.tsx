@@ -8,7 +8,7 @@ import {
   MultiplicationKey,
   NumberKey,
   SubtractionKey,
-} from '@/components/Key';
+} from './Key';
 
 export const KeyBoard = () => {
   return (

@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
+import { describe, it, expect } from '@jest/globals'
 
-import { KeyBoard } from '@/components/KeyBoard';
+import { KeyBoard } from 'src/components/calculator/KeyBoard'
 
 describe('Keyboard', () => {
   it('should display operator buttons', () => {

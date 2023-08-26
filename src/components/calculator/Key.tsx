@@ -1,6 +1,7 @@
-import { Button, Grid } from '@mui/material';
+import Button from 'src/components/Button'
+import Grid from 'src/components/Grid'
 
-import { CONSOLE_INIT_TEXT, useConsole } from '@/contexts/ConsoleContext';
+import { CONSOLE_INIT_TEXT, useConsole } from './contexts/ConsoleContext'
 
 type KeyProps = {
   value: number | string;
