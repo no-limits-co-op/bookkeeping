@@ -1,30 +1,21 @@
-import react, { useState } from 'react'
-import { Text, View } from 'react-native'
+import react, { useEffect } from 'react'
+import { ScrollView, Text } from 'react-native'
 import useNotion from '../../hooks/useNotion'
+import ListLayout from 'src/components/ListLayout'
+import useDatabase from 'src/hooks/useDatabase'
 
 const Home: react.FC = () => {
   const { notion } = useNotion()
-  const myPage = async () => await notion?.databases.query({
-    database_id: process.env.NOTION_DATABASE_ID
-    //   filter: {
-    //       property: "Landmark",
-    //       rich_text: {
-    //           contains: "Bridge",
-    //       },
-    //   },
-  })
-  const [data, useData] = useState<any>(null)
-  myPage().then((res) => {
-    useData(res)
-  })
+  const { data, setData } = useDatabase()
+
+  useEffect(() => {
+    setData(notion)
+  }, [])
   return (
-    <View>
+    <ScrollView>
       <Text>Home Page</Text>
-      { data?.results.map((res) => (<View key={ res.id }>
-        <Text>{ res.id }</Text>
-        <Text>{ JSON.stringify(res.properties) }</Text>
-      </View>)) }
-    </View>
+      { data?.results.map((res) => <ListLayout key={ res.id } property={ res.properties }/>) }
+    </ScrollView>
   )
 }
 
