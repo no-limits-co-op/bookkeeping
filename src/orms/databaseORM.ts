@@ -31,7 +31,7 @@ export class DatabaseORM {
     const keys = Object.keys(raw)
     const item = {
       Years: '',
-      Account: '',
+      Account: 0,
       Date: '',
       Type: { title: '', color: '' },
       Resource: { title: '', color: '' },
@@ -61,6 +61,6 @@ export class DatabaseORM {
     return item
   }
 
-  deserializeDataRaw(dataItems: DataItem[]): PageObjectResponse {
+  deserializeDataRaw(dataItems: DataItem[]) {
   }
 }

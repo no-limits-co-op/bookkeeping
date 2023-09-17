@@ -1,15 +1,16 @@
-import { Client } from '@notionhq/client'
 import { create } from 'zustand'
+import NotionORM from 'src/orms/notionORM'
 
-const useNotion = create((set) => {
+const useNotion = create((set): {
+  notion: NotionORM | null,
+  setNotion: () => boolean
+} => {
   return {
     notion: null,
     setNotion: () => {
       if (this.notion) return true
       set({
-        notion: new Client({
-          auth: process.env.NOTION_TOKEN
-        })
+        notion: new NotionORM()
       })
       return true
     }

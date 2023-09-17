@@ -1,15 +1,15 @@
-import react, { useEffect } from 'react'
+import react, { useEffect, useState } from 'react'
 import { ScrollView, Text } from 'react-native'
 import useNotion from '../../hooks/useNotion'
 import ListLayout from 'src/components/ListLayout'
-import useDatabase from 'src/hooks/useDatabase'
+import { DataItem } from 'src/orms/databaseORM'
 
 const Home: react.FC = () => {
   const { notion } = useNotion()
-  const { data, setData } = useDatabase()
+  const [data, setData] = useState<DataItem[]>()
 
   useEffect(() => {
-    setData(notion)
+    notion?.queryData().then(res => setData(res))
   }, [])
   return (
     <ScrollView>

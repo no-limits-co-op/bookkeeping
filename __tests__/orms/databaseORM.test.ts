@@ -71,6 +71,7 @@ describe('Notion Data Reflection', () => {
       'public_url': null
     }], 'next_cursor': null, 'has_more': false, 'type': 'page_or_database', 'page_or_database': {}
   }
+ 
   it('should create serialized data items', () => {
     const serializedData = new DatabaseORM(notionData)
     expect(serializedData.dataItems).toEqual([{
