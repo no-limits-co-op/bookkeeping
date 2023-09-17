@@ -14,7 +14,7 @@ const Home: react.FC = () => {
   return (
     <ScrollView>
       <Text>Home Page</Text>
-      { data?.results.map((res) => <ListLayout key={ res.id } property={ res.properties }/>) }
+      { data?.map((res) => <ListLayout key={ res.id } property={ res }/>) }
     </ScrollView>
   )
 }
